@@ -303,17 +303,13 @@ export const EXPERIENCE: Experience[] = [
   {
     id: 1,
     periods: [
-      { start: "Oct 2026", end: "Present" },
-      { start: "Apr 2022", end: "Dec 2024" },
+      { start: "June 2013", end: "now" },
     ],
-    title: "Freelance Full Stack Developer",
-    company: "Self-employed · Remote",
+    title: "full time larper",
+    company: "gihs",
     description: [
-      "Leading the build of an audit, tax and secretarial platform for a Malaysian CA firm.",
-      "Shipped 12+ client projects solo, from the first scoping call to deploy and handover.",
-      "Replaced spreadsheet workflows with dashboards, cutting weekly reporting from 6h to 30m.",
-      "Built admin panels and CMSs so non-technical clients could stop emailing me for edits.",
-      "Ran client infra on Docker, Nginx and Cloudflare at 99.9% uptime with nightly backups.",
+      "self explanitory",
+      "arch use BTW",
     ],
     skills: [
       SkillNames.NEXTJS,
@@ -324,44 +320,14 @@ export const EXPERIENCE: Experience[] = [
       SkillNames.DOCKER,
       SkillNames.CLOUDFLARE,
     ],
-  },
-  {
-    id: 2,
-    periods: [{ start: "Dec 2024", end: "Oct 2026" }],
-    title: "Full Stack Developer",
-    company: "OmniNexus Sdn Bhd · Kuala Lumpur",
-    description: [
-      "Built an in-browser image editor from scratch and cancelled a $6k/year SaaS plan.",
-      "Scaled the AI job pipeline to 3k+ tasks a day, with retries keeping failures under 1%.",
-      "Cut image load times by 45% with resized variants, AVIF and smarter CDN caching.",
-      "Rewrote slow database queries, taking key dashboards from 4s to under 600ms.",
-      "Shipped 30+ features end-to-end and set up CI with preview deploys for every PR.",
-    ],
-    skills: [
-      SkillNames.NEXTJS,
-      SkillNames.TS,
-      SkillNames.REACT,
-      SkillNames.NODEJS,
-      SkillNames.MONGODB,
-      SkillNames.DOCKER,
-      SkillNames.GCP,
-    ],
-  },
+  }
 ];
 
 export const themeDisclaimers = {
   light: [
-    "Warning: Light mode emits a gazillion lumens of pure radiance!",
-    "Caution: Light mode ahead! Please don't try this at home.",
-    "Only trained professionals can handle this much brightness. Proceed with sunglasses!",
-    "Brace yourself! Light mode is about to make everything shine brighter than your future.",
-    "Flipping the switch to light mode... Are you sure your eyes are ready for this?",
+    "are you a loser for using light mode??"
   ],
   dark: [
-    "Light mode? I thought you went insane... but welcome back to the dark side!",
-    "Switching to dark mode... How was life on the bright side?",
-    "Dark mode activated! Thanks you from the bottom of my heart, and my eyes too.",
-    "Welcome back to the shadows. How was life out there in the light?",
-    "Dark mode on! Finally, someone who understands true sophistication.",
+    "why were you using light mode in the first place"
   ],
 };
