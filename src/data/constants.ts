@@ -1,30 +1,33 @@
 // thoda zada ts ho gya idhar
-// order = keycap layout, 6 per row
+import keyboardLayout from "./keyboard.json";
+
+// Keycap layout (colors + logos) lives in ./keyboard.json, 6 per row.
+// The enum order below must match the order of `keys` in that file.
 export enum SkillNames {
-  JS = "js",
-  TS = "ts",
-  REACT = "react",
-  NEXTJS = "nextjs",
-  VUE = "vue",
-  EXPO = "expo",
-  TAILWIND = "tailwind",
-  NODEJS = "nodejs",
-  EXPRESS = "express",
-  BUN = "bun",
-  POSTGRES = "postgres",
-  MONGODB = "mongodb",
-  LINUX = "linux",
-  GIT = "git",
-  VIM = "vim",
+  HYPRLAND = "hyprland",
+  KOYEB = "koyeb",
   DOCKER = "docker",
-  NGINX = "nginx",
-  CLAUDE = "claude",
-  CLOUDFLARE = "cloudflare",
-  GCP = "gcp",
-  AWS = "aws",
-  HOME_ASSISTANT = "homeassistant",
-  PROXMOX = "proxmox",
+  GITHUB = "github",
+  REACT = "react",
+  LINUX = "linux",
+  ARCH = "archlinux",
+  UNITY = "unity",
+  CSS = "css",
+  AMD = "amd",
+  VSCODE = "vscode",
+  NVIDIA = "nvidia",
   STEAM = "steam",
+  WEBPACK = "webpack",
+  JS = "js",
+  GSAP = "gsap",
+  CLAUDE = "claude",
+  NODEJS = "nodejs",
+  PYTHON = "python",
+  GODOT = "godot",
+  VERCEL = "vercel",
+  TIKTOK = "tiktok",
+  RAILWAY = "railway",
+  FIREBASE = "firebase",
 }
 export type Skill = {
   id: number;
@@ -40,254 +43,187 @@ export type Skill = {
   /** Browser KeyboardEvent.code, e.g. KeyJ. Defaults to the displayed key order. */
   shortcut?: string;
 };
-export const SKILLS: Record<SkillNames, Skill> = {
-  [SkillNames.JS]: {
-    id: 1,
-    name: "js",
-    label: "JavaScript",
-    shortDescription: "yeeting code into the DOM since '95, no cap! 💯🚀",
-    color: "#f0db4f",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/js.svg",
-    keyboardColor: "#ff9408",
+
+type SkillMeta = { label: string; shortDescription: string; color: string };
+
+// color = HTML brand accent (skills grid glow); the keycap color comes from keyboard.json
+const SKILL_META: Record<SkillNames, SkillMeta> = {
+  [SkillNames.HYPRLAND]: {
+    label: "Hyprland",
+    shortDescription: "larpland",
+    color: "#58e1ff",
   },
-  [SkillNames.TS]: {
-    id: 2,
-    name: "ts",
-    label: "TypeScript",
-    shortDescription:
-      "JavaScript's overachieving cousin who's always flexing 💯🔒",
-    color: "#007acc",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/ts.svg",
-    keyboardColor: "#008fd5",
-  },
-  [SkillNames.REACT]: {
-    id: 3,
-    name: "react",
-    label: "React",
-    shortDescription: `"use using" 
-using use = useUsing("use")`,
-    color: "#61dafb",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/react.svg",
-    keyboardColor: "#00cce8",
-  },
-  [SkillNames.NEXTJS]: {
-    id: 4,
-    name: "nextjs",
-    label: "Next.js",
-    shortDescription:
-      "the drama queen of front-end frameworks, and we stan! 👑📜",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/nextjs.svg",
-    keyboardColor: "#333537",
-  },
-  [SkillNames.VUE]: {
-    id: 5,
-    name: "vue",
-    label: "Vue",
-    shortDescription:
-      "the chill pill for your frontend, it hits different! 🟢😌",
-    color: "#41b883",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/vue.svg",
-    keyboardColor: "#00b880",
-  },
-  [SkillNames.EXPO]: {
-    id: 6,
-    name: "expo",
-    label: "Expo",
-    shortDescription: "one codebase, every screen, zero Xcode tears 📱✨",
-    color: "#000020",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/expo/expo-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/expo.svg",
-    keyboardColor: "#1b1f2e",
-  },
-  [SkillNames.TAILWIND]: {
-    id: 7,
-    name: "tailwind",
-    label: "Tailwind",
-    shortDescription: "utility classes hitting different fr fr 🌪️🔥",
-    color: "#38bdf8",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/tailwind.svg",
-    keyboardColor: "#00bfd8",
-  },
-  [SkillNames.NODEJS]: {
-    id: 8,
-    name: "nodejs",
-    label: "Node.js",
-    shortDescription: "JavaScript said 'sike, I'm backend now', deadass! 🔙🔚",
-    color: "#6cc24a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/nodejs.svg",
-    keyboardColor: "#00952c",
-  },
-  [SkillNames.EXPRESS]: {
-    id: 9,
-    name: "express",
-    label: "Express",
-    shortDescription: "middlewares go dummy hard, no cap! 🚂💨",
-    color: "#fff",
-    icon: "https://cdn.simpleicons.org/express/9CA3AF",
-    keyboardIcon: "/assets/keyboard/logos/express.svg",
-    keyboardColor: "#343638",
-  },
-  [SkillNames.BUN]: {
-    id: 10,
-    name: "bun",
-    label: "Bun",
-    shortDescription: "node but it chugged three energy drinks 🥟⚡",
-    color: "#fbf0df",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bun/bun-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/bun.svg",
-    keyboardColor: "#ec6fa5",
-  },
-  [SkillNames.POSTGRES]: {
-    id: 11,
-    name: "postgres",
-    label: "PostgreSQL",
-    shortDescription: "SQL but make it fashion, purr 💅🐘",
-    color: "#336791",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/postgres.svg",
-    keyboardColor: "#146888",
-  },
-  [SkillNames.MONGODB]: {
-    id: 12,
-    name: "mongodb",
-    label: "MongoDB",
-    shortDescription: "flexin' with that NoSQL drip, respectfully! 💪🍃",
-    color: "#336791",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/mongodb.svg",
-    keyboardColor: "#00c51b",
-  },
-  [SkillNames.LINUX]: {
-    id: 13,
-    name: "linux",
-    label: "Linux",
-    shortDescription: "where 'chmod 777' is the ultimate flex 🔓🙌",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/linux.svg",
-    keyboardColor: "#333537",
-  },
-  [SkillNames.GIT]: {
-    id: 14,
-    name: "git",
-    label: "Git",
-    shortDescription: "the code's personal bodyguard, no cap! 🕵️‍♂️🔄",
-    color: "#f1502f",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/git.svg",
-    keyboardColor: "#ff4622",
-  },
-  [SkillNames.VIM]: {
-    id: 15,
-    name: "vim",
-    label: "Vim",
-    shortDescription: "exit? In this economy? Ight, imma head out! 🚪🏃",
-    color: "#e34c26",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/vim.svg",
-    keyboardColor: "#009f18",
+  [SkillNames.KOYEB]: {
+    label: "Koyeb",
+    shortDescription: "tbh i only used for free trial",
+    color: "#9ca3af",
   },
   [SkillNames.DOCKER]: {
-    id: 16,
-    name: "docker",
     label: "Docker",
-    shortDescription: "The best containerization! 🐳🔥",
+    shortDescription: "i have no clue how to use",
     color: "#2496ed",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/docker.svg",
-    keyboardColor: "#009fe8",
   },
-  [SkillNames.NGINX]: {
-    id: 17,
-    name: "nginx",
-    label: "NginX",
-    shortDescription: "reverse proxy go zoom zoom, sheesh! 🚗💨",
-    color: "#008000",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/nginx.svg",
-    keyboardColor: "#00a20b",
+  [SkillNames.GITHUB]: {
+    label: "GitHub",
+    shortDescription: "i might not be larping this",
+    color: "#9ca3af",
   },
-  [SkillNames.CLAUDE]: {
-    id: 18,
-    name: "claude",
-    label: "Claude",
-    shortDescription: "my pair programmer that never asks for a coffee break 🤖☕",
-    color: "#d97757",
-    icon: "https://cdn.simpleicons.org/claude/D97757",
-    keyboardIcon: "/assets/keyboard/logos/claude.svg",
-    keyboardColor: "#d97757",
+  [SkillNames.REACT]: {
+    label: "React",
+    shortDescription: `sumensite was made with react`,
+    color: "#61dafb",
   },
-  [SkillNames.CLOUDFLARE]: {
-    id: 19,
-    name: "cloudflare",
-    label: "Cloudflare",
-    shortDescription: "edge go brrr, my homelab hides behind this orange cloud ☁️🛡️",
-    color: "#f38020",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/cloudflare.svg",
-    keyboardColor: "#f38020",
+  [SkillNames.LINUX]: {
+    label: "Linux",
+    shortDescription: "opsec demon",
+    color: "#fcc624",
   },
-  [SkillNames.GCP]: {
-    id: 20,
-    name: "gcp",
-    label: "Google Cloud",
-    shortDescription:
-      "cloud computing but make it Google vibes, living rent free! ☁️🔥",
-    color: "#4285f4",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/gcp.svg",
-    keyboardColor: "#008fd5",
+  [SkillNames.ARCH]: {
+    label: "Arch Linux",
+    shortDescription: "i use arch btw",
+    color: "#1793d1",
   },
-  [SkillNames.AWS]: {
-    id: 21,
-    name: "aws",
-    label: "AWS",
-    shortDescription:
-      "always extra, making everything more complicated, period! 🌐👨‍💻",
-    color: "#ff9900",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/aws.svg",
-    keyboardColor: "#ff9208",
+  [SkillNames.UNITY]: {
+    label: "Unity",
+    shortDescription: "godot better",
+    color: "#9ca3af",
   },
-  [SkillNames.HOME_ASSISTANT]: {
-    id: 22,
-    name: "homeassistant",
-    label: "Home Assistant",
-    shortDescription: "my house runs on YAML and vibes, lights obey me fr 🏠💡",
-    color: "#18bcf2",
-    icon: "https://cdn.simpleicons.org/homeassistant/18BCF2",
-    keyboardIcon: "/assets/keyboard/logos/homeassistant.svg",
-    keyboardColor: "#03a9f4",
+  [SkillNames.CSS]: {
+    label: "CSS",
+    shortDescription: "center a div",
+    color: "#1572b6",
   },
-  [SkillNames.PROXMOX]: {
-    id: 23,
-    name: "proxmox",
-    label: "Proxmox",
-    shortDescription: "a whole datacenter in my closet, power bill said ouch 🖥️🔥",
-    color: "#e57000",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/proxmox/proxmox-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/proxmox.svg",
-    keyboardColor: "#e57000",
+  [SkillNames.AMD]: {
+    label: "AMD",
+    shortDescription: "amd >>> nvidia",
+    color: "#ed1c24",
+  },
+  [SkillNames.VSCODE]: {
+    label: "VS Code",
+    shortDescription: "only microslop thing i use",
+    color: "#007acc",
+  },
+  [SkillNames.NVIDIA]: {
+    label: "NVIDIA",
+    shortDescription: "power consumtion from 3080",
+    color: "#76b900",
   },
   [SkillNames.STEAM]: {
-    id: 24,
-    name: "steam",
     label: "Steam",
-    shortDescription: "\"just one more match\" at 3am, every night 🎮🌙",
+    shortDescription: "86% of library is pirated",
     color: "#66c0f4",
-    icon: "https://cdn.simpleicons.org/steam/66C0F4",
-    keyboardIcon: "/assets/keyboard/logos/steam.svg",
-    keyboardColor: "#1b2838",
+  },
+  [SkillNames.WEBPACK]: {
+    label: "Webpack",
+    shortDescription: "it had a cool logo, idk what this is",
+    color: "#8dd6f9",
+  },
+  [SkillNames.JS]: {
+    label: "JavaScript",
+    shortDescription: "most basic coding language",
+    color: "#f0db4f",
+  },
+  [SkillNames.GSAP]: {
+    label: "GSAP",
+    shortDescription: "i like gsap",
+    color: "#88ce02",
+  },
+  [SkillNames.CLAUDE]: {
+    label: "Claude",
+    shortDescription: "i like vibecoding",
+    color: "#d97757",
+  },
+  [SkillNames.NODEJS]: {
+    label: "Node.js",
+    shortDescription: "sudo npm opsec",
+    color: "#6cc24a",
+  },
+  [SkillNames.PYTHON]: {
+    label: "Python",
+    shortDescription: "i indent in spaces",
+    color: "#3776ab",
+  },
+  [SkillNames.GODOT]: {
+    label: "Godot",
+    shortDescription: "pronounced, go dot",
+    color: "#478cbf",
+  },
+  [SkillNames.VERCEL]: {
+    label: "Vercel",
+    shortDescription: "this always comes with fastly",
+    color: "#9ca3af",
+  },
+  [SkillNames.TIKTOK]: {
+    label: "TikTok",
+    shortDescription: "only thing i use here daily",
+    color: "#fe2c55",
+  },
+  [SkillNames.RAILWAY]: {
+    label: "Railway",
+    shortDescription: "i am larping railway",
+    color: "#9d7bff",
+  },
+  [SkillNames.FIREBASE]: {
+    label: "Firebase",
+    shortDescription: "why do i need verified google account for this",
+    color: "#ffca28",
   },
 };
+
+// Logos with a white local copy in /public/assets/keyboard/logos (keyed by normalized slug).
+const LOCAL_LOGOS: Record<string, string> = {
+  claude: "claude.svg",
+  docker: "docker.svg",
+  linux: "linux.svg",
+  nodedotjs: "nodejs.svg",
+  react: "react.svg",
+  steam: "steam.svg",
+  javascript: "js.svg",
+};
+// keyboard.json names that differ from the Simple Icons slug
+const SLUG_ALIASES: Record<string, string> = { godot: "godotengine" };
+
+const isUrl = (logo: string) => /^https?:\/\//.test(logo);
+const normalize = (logo: string) => logo.toLowerCase().replace(/[^a-z0-9]/g, "");
+const logoSlug = (logo: string) => {
+  const slug = normalize(logo);
+  return SLUG_ALIASES[slug] ?? slug;
+};
+
+/** White artwork for the 3D keycap: a full URL as given, else a local SVG, else Simple Icons. */
+function keyboardLogo(logo: string): string {
+  if (isUrl(logo)) return logo;
+  const local = LOCAL_LOGOS[normalize(logo)];
+  return local ? `/assets/keyboard/logos/${local}` : `https://cdn.simpleicons.org/${logoSlug(logo)}/ffffff`;
+}
+
+/** Brand-colored artwork for the HTML skills grid / experience badges. */
+function htmlLogo(logo: string, color: string): string {
+  return isUrl(logo) ? logo : `https://cdn.simpleicons.org/${logoSlug(logo)}/${color.replace("#", "")}`;
+}
+
+const SKILL_NAMES = Object.values(SkillNames);
+if (
+  keyboardLayout.keys.length !== keyboardLayout.rows * keyboardLayout.cols ||
+  keyboardLayout.keys.length !== SKILL_NAMES.length
+) {
+  throw new Error("keyboard.json rows x cols, its keys, and SkillNames must all match");
+}
+
+export const SKILLS = Object.fromEntries(
+  SKILL_NAMES.map((name, index): [SkillNames, Skill] => {
+    const key = keyboardLayout.keys[index];
+    const meta = SKILL_META[name];
+    return [name, {
+      id: index + 1,
+      name,
+      ...meta,
+      icon: htmlLogo(key.logo, meta.color),
+      keyboardIcon: keyboardLogo(key.logo),
+      keyboardColor: key.color,
+    }];
+  }),
+) as Record<SkillNames, Skill>;
 
 export type Experience = {
   id: number;
@@ -312,13 +248,9 @@ export const EXPERIENCE: Experience[] = [
       "arch use BTW",
     ],
     skills: [
-      SkillNames.NEXTJS,
       SkillNames.REACT,
       SkillNames.NODEJS,
-      SkillNames.POSTGRES,
-      SkillNames.TAILWIND,
       SkillNames.DOCKER,
-      SkillNames.CLOUDFLARE,
     ],
   }
 ];
