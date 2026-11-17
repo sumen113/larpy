@@ -1,0 +1,30 @@
+{
+  "rows": 4,
+  "cols": 6,
+  "keys": [
+    {"color":"#5e5c64","logo":"hyprland"},
+    {"color":"#000000","logo":"koyeb"},
+    {"color":"#5e5c64","logo":"docker"},
+    {"color":"#241f31","logo":"github"},
+    {"color":"#000000","logo":"react"},
+    {"color":"#241f31","logo":"linux"},
+    {"color":"#000000","logo":"arch linux"},
+    {"color":"#000000","logo":"unity"},
+    {"color":"#3d3846","logo":"css"},
+    {"color":"#5e5c64","logo":"amd"},
+    {"color":"#241f31","logo":"https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/visual-studio-code/default.svg"},
+    {"color":"#241f31","logo":"nvidia"},
+    {"color":"#5e5c64","logo":"steam"},
+    {"color":"#241f31","logo":"webpack"},
+    {"color":"#5e5c64","logo":"javascript"},
+    {"color":"#3d3846","logo":"gsap"},
+    {"color":"#000000","logo":"claude"},
+    {"color":"#000000","logo":"nodedotjs"},
+    {"color":"#241f31","logo":"python"},
+    {"color":"#241f31","logo":"godot"},
+    {"color":"#5e5c64","logo":"vercel"},
+    {"color":"#3d3846","logo":"tiktok"},
+    {"color":"#3d3846","logo":"railway"},
+    {"color":"#3d3846","logo":"firebase"}
+  ]
+}
